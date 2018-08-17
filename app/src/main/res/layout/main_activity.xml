@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="click on the button then see log in Logcat in AndroidStudio "
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
+    <Button
+        android:id="@+id/btn_add_employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add new Employee (Create)"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_list_employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="get all Employees (Read)"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_update_employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="update Employee (Update)"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_delete_employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="delete Employee (Delete)"
+        android:textAllCaps="false"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#a6b381"/>
+    <Button
+        android:id="@+id/btn_list_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show all Departments"
+        android:textAllCaps="false"/>
+</LinearLayout>
