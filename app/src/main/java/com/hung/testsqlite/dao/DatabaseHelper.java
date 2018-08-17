@@ -16,17 +16,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String TAG = DatabaseHelper.class.getSimpleName();
 
     /* Các biến dùng trung giữa các instance của Class này*/
-    public static final String dbName = "demoDB";
-
+    private static final String dbName = "demoDB";
+    /**
+     * Neu change version thi onUpgrade() sẽ đc goi
+     */
+    private static final int dbVersion = 1;
 
 
     /*Tại hàm này ta tạo Data base*/
     public DatabaseHelper(Context context) {
-        super(context, dbName, null, 33);
-
+        // dbName moi dc tao ra se luu lai dbVersion de check cho nhung lan sau
+        super(context, dbName, null, dbVersion);
     }
 
-
+    /**
+     * Ham nay chi dc goi duy nhat 1 lan khi dbName đc tao ra
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "onCreate()");
@@ -55,17 +60,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //Xóa toàn bộ bảng cũ trước khi tạo lại bảng mới
-        DepartmentDAO.dropTable(db);
-        EmployeesDAO.dropTable(db);
-        EmployeeViewDAO.dropView(db);
+        // compare oldVersion and newVersion then make the decision to update or not
+        if(newVersion > oldVersion){
+            //Xóa toàn bộ bảng cũ trước khi tạo lại bảng mới
+            DepartmentDAO.dropTable(db);
+            EmployeesDAO.dropTable(db);
+            EmployeeViewDAO.dropView(db);
 
-        db.execSQL("DROP TRIGGER IF EXISTS dept_id_trigger");
-        db.execSQL("DROP TRIGGER IF EXISTS dept_id_trigger22");
-        db.execSQL("DROP TRIGGER IF EXISTS fk_empdept_deptid");
+            db.execSQL("DROP TRIGGER IF EXISTS dept_id_trigger");
+            db.execSQL("DROP TRIGGER IF EXISTS dept_id_trigger22");
+            db.execSQL("DROP TRIGGER IF EXISTS fk_empdept_deptid");
 
-        //tạo lại bảng mới
-        onCreate(db);
+            //tạo lại bảng mới
+            onCreate(db);
+        }
+
+        
+
     }
 
 
