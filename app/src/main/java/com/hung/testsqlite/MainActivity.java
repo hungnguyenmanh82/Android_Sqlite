@@ -20,8 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private LinearLayout mDrawerLayout;
     private Button mBtnAddEmployee;
     private Button mBtnListEmployee;
     private Button mBtnUpdateEmployee;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initView() {
-        mDrawerLayout = (LinearLayout) findViewById(R.id.drawer_layout);
+
         mBtnAddEmployee = (Button) findViewById(R.id.btn_add_employee);
         mBtnListEmployee = (Button) findViewById(R.id.btn_list_employee);
         mBtnUpdateEmployee = (Button) findViewById(R.id.btn_update_employee);
